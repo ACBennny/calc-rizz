@@ -1,0 +1,115 @@
+
+<!--  ===========================================================
+    This is the FXML file of CalcRizz
+    It holds the structure of the calculator
+
+    @author Anyanwu Benedict Chukwuemeka
+    @version version One[1]
+ ============================================================= -->
+
+
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane styleClass="main" xmlns:fx="http://javafx.com/fxml/1"
+      xmlns="http://javafx.com/javafx/15.0.1" fx:controller="CalcRizz.CalcRizzControl">
+
+    <!-- Empty spaces used to create transparent boreders around the calculator -->
+    <top>
+        <Pane styleClass="empty_bdr_v"></Pane>
+    </top>
+    <bottom><Pane styleClass="empty_bdr_v"></Pane></bottom>
+    <left><Pane styleClass="empty_bdr_h"></Pane></left>
+    <right><Pane styleClass="empty_bdr_h"></Pane></right>
+
+    <!-- Main Content -->
+    <center>
+        <Pane styleClass="base">
+            <VBox styleClass="base_ctnt">
+
+                <!-- Panel for Branding of the calculator -->
+                <Pane styleClass="ctnt_section">
+                    <HBox styleClass="brand_box">
+                        <Pane styleClass="brand_section">
+                            <Pane styleClass="brand_logo">
+                            </Pane>
+                        </Pane>
+                        <Pane styleClass="brand_section">
+                            <VBox styleClass="brand_info">
+                                <Label styleClass="brand_Main_name" text="CALC RIZZ" />
+                                <Label styleClass="brand_Main_version" text="cr-01456ES" />
+                                <Label styleClass="brand_author_name" text="by Anyanwu Benedict Chukwuemeka" />
+                                <Label styleClass="brand_author_idNo" text="from ACBennny on GitHub" />
+                            </VBox>
+                        </Pane>
+                    </HBox>
+                </Pane>
+
+                <!-- Panel to display operations by the user -->
+                <Pane styleClass="ctnt_section">
+                    <VBox styleClass="display_box">
+                        <Label fx:id="display_input" styleClass="display_field" text="" />
+                        <Label fx:id="display_output" styleClass="display_field" text="" />
+                        <Label fx:id="display_warn" styleClass="display_warning" text="" />
+                    </VBox>
+                </Pane>
+
+                <!-- Panel of Radio buttons to configure calculator -->
+                <Pane styleClass="ctnt_section">
+                    <HBox styleClass="gradeClass">
+                        <Label styleClass="gradeTitle" text="Solving for :" />
+                        <HBox styleClass="gradeTypeBox">
+                            <fx:define>
+                                <ToggleGroup fx:id="gradeTypeRadio" />
+                            </fx:define>
+                            <RadioButton fx:id="grade4Rad" styleClass="gradeRad" text="Grade 4" toggleGroup="$gradeTypeRadio" selected="true" />
+                            <RadioButton fx:id="grade5Rad" styleClass="gradeRad" text="Grade 5" toggleGroup="$gradeTypeRadio" />
+                            <RadioButton fx:id="grade6Rad" styleClass="gradeRad" text="Grade 6" toggleGroup="$gradeTypeRadio" />
+                        </HBox>
+                    </HBox>
+                </Pane>
+
+                <!-- Panel of buttons for the calculator -->
+                <Pane styleClass="ctnt_section">
+                    <GridPane styleClass="operand_btnBox">
+                        <!-- Numbers [0 - 9] -->
+                        <Button styleClass="operand_btn" text="0" GridPane.columnIndex="0" GridPane.rowIndex="3" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="1" GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="2" GridPane.columnIndex="1" GridPane.rowIndex="2" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="3" GridPane.columnIndex="2" GridPane.rowIndex="2" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="4" GridPane.columnIndex="0" GridPane.rowIndex="1" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="5" GridPane.columnIndex="1" GridPane.rowIndex="1" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="6" GridPane.columnIndex="2" GridPane.rowIndex="1" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="7" GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="8" GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="9" GridPane.columnIndex="2" GridPane.rowIndex="0" onAction="#displayUserInput" />
+                        
+                        <!-- Operators -->
+                        <Button styleClass="operand_btn" text="+" GridPane.columnIndex="1" GridPane.rowIndex="3" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="-" GridPane.columnIndex="2" GridPane.rowIndex="3" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="×" GridPane.columnIndex="3" GridPane.rowIndex="1" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="2" onAction="#displayUserInput" />
+                        <Button styleClass="operand_btn" text="CE" GridPane.columnIndex="3" GridPane.rowIndex="0" onAction="#clearDisplay"/>
+                        <Button styleClass="submit_btn" text="=" GridPane.columnIndex="3" GridPane.rowIndex="3" onAction="#numberOperations" />
+                    </GridPane>
+                </Pane>
+            </VBox>
+        </Pane>
+    </center>
+</BorderPane>
+
+
+
+
+ 
